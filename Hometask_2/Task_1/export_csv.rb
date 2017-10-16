@@ -27,12 +27,12 @@ module ExportCSV
     def posts_info_csv
       posts = class_variable_get(:@@posts)
 
-       CSV.open('posts_info.csv', 'a+') do |csv|
+      CSV.open('posts_info.csv', 'a+') do |csv|
         csv << %w[Title Body Owner_email]
         posts.each do |post|
           csv << [post.title, post.body, post.owner_email]
         end
       end
-    end     
+    end
   end
 end

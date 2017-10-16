@@ -10,6 +10,19 @@
 # create a method to create a csv file with users info.
 # more info here: https://stackoverflow.com/a/19694973
 
+# 4 this is a continuation of 3 task
+
+# create a class "Post" with "title", "body", "owner_email" attributes
+## user can create a post
+# create a method to add, remove, update a post
+# create a method to return all posts
+
+## EXTRA TASK
+
+# use module "ExportCSV"
+# create a method to create a csv file with posts info.
+# more info here: https://stackoverflow.com/a/19694973
+
 require_relative 'export_csv'
 
 class User
@@ -44,7 +57,6 @@ class User
       next unless u.name == name
       u.age = new_age
       u.email = new_email
-
       puts "        User #{u.name} was succesfully updated !"
     end
   end
@@ -73,28 +85,27 @@ class Post
     puts "       New post \" #{title} \" was succesfully posted !"
   end
 
-def self.remove_post(title)
+  def self.remove_post(title)
     @@posts.map do |p|
       if title == p.title
         @@posts.delete(p)
         puts "       Post \" #{title} \" was succesfully removed !"
       end
     end
-  end
+    end
 
-    def self.update_post(new_title, new_body, owner_email)
+  def self.update_post(new_title, new_body, owner_email)
     @@posts.map do |p|
       next unless p.owner_email == owner_email
       p.title = new_title
       p.body = new_body
-
       puts "       Post \"  #{p.owner_email} \" was succesfully updated !"
     end
-  end
+end
 
-    def self.return_all_posts
+  def self.return_all_posts
     @@posts.each { |p| puts "Title: #{p.title} \n Body: #{p.body} \n User: #{p.user}" }
-  end
+end
 end
 
 User.add_user('Dima', 25, 'potap1692@gmail.com')
