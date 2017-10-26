@@ -1,0 +1,7 @@
+<h1> Edit Countries </h1>
+
+<%= form_for @country do |f| %>
+  <%= f.text_field :name %>
+  <%= f.number_field :population %>
+  <%= f.submit %>
+<% end %>

@@ -1,11 +1,8 @@
 <h1> Index </h1>
 
-
-
 <% @cats.each do |cat| %>
-	<%= cat.name %>
-
-	<%= link_to 'Show', cat %>
-	<%= link_to 'Edit', edit_cat_path(cat) %>
-	<%= link_to 'Destoy', cat, method: :delete %><br>
+  <%= cat.name %>
+  <%= link_to 'Show', cat %>
+  <%= link_to 'Edit', edit_cat_path(cat) %>
+  <%= link_to 'Destoy', cat, method: :delete %><br>
 <% end %>
