@@ -1,0 +1,7 @@
+<h1> Create Cat </h1>
+
+<%= form_for @cats do |f| %>
+<%= f.text_field :name %>
+<%= f.number_field :age %>
+<%= f.submit %>
+<% end %>
