@@ -1,0 +1,9 @@
+<h1> New Book </h1>
+
+<%= form_for @books do |f| %>
+	<%= 'Name:' %><br>
+	<%= f.text_field :name %><br>
+	<%= 'Author:' %><br>
+	<%= f.text_field :author %><br><br>
+	<%= f.submit %>
+<% end %>

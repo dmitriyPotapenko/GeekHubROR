@@ -1,42 +1,41 @@
 class WorkersController < ApplicationController
-	before_action :find_worker, only: [:show, :edit, :update, :destroy]
-	
-	def index
-		@workers = Worker.all
-	end
+  before_action :find_worker, only: %i[show edit update destroy]
 
-	def new
-		@workers = Worker.new
-	end
+  def index
+    @workers = Worker.all
+  end
 
-	def create
-		Worker.create(params.require(:worker).permit(:name, :post))
+  def new
+    @workers = Worker.new
+  end
 
-		redirect_to workers_path
-	end
+  def create
+    Worker.create(params.require(:worker).permit(:name, :post))
 
-	def show
-	end
+    redirect_to workers_path
+  end
 
-	def edit
-	end
+  def show
+  end
 
-	def update
-		Worker.update(params.require(:worker).permit(:name, :post))
+  def edit
+  end
 
-		redirect_to workers_path
-	end
+  def update
+    Worker.update(params.require(:worker).permit(:name, :post))
 
-	def destroy
+    redirect_to workers_path
+  end
+
+  def destroy
     @worker.destroy
 
-		redirect_to workers_path
-	end
+    redirect_to workers_path
+  end
 
-	private
+  private
 
-	def find_worker
-		@worker = Worker.find(params[:id])
-	end
-
+  def find_worker
+    @worker = Worker.find(params[:id])
+  end
 end
