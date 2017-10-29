@@ -1,0 +1,11 @@
+<h1> Edit Film Info </h1>
+
+<%= form_for @films do |f| %>
+	<%= 'Name:' %><br>
+	<%= f.text_field :name %><br>
+	<%= 'Year of issue:' %><br>
+	<%= f.number_field :year %><br>
+	<%= 'Producer:' %><br>
+	<%= f.text_field :producer %><br><br>
+	<%= f.submit %>
+<% end %>

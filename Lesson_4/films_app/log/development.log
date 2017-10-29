@@ -1,0 +1,726 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFilms (20171029105748)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "films" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "year" integer, "producer" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171029105748"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-29 10:58:10.233450"], ["updated_at", "2017-10-29 10:58:10.233450"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/films/new" for 127.0.0.1 at 2017-10-29 04:13:12 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/ubuntu/GeekHubROR/Lesson_4/films_app/app/controllers/films_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	before_action :find_film only: [show:, edit:, update:, dest
+	                             ^):
+  
+app/controllers/films_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+Started GET "/films/new" for 127.0.0.1 at 2017-10-29 04:13:57 -0700
+  
+SyntaxError (/home/ubuntu/GeekHubROR/Lesson_4/films_app/app/controllers/films_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	before_action :find_film only: [:show, :edit, :pdate, :dest
+	                             ^):
+  
+app/controllers/films_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+Started GET "/films/new" for 127.0.0.1 at 2017-10-29 04:14:18 -0700
+  
+SyntaxError (/home/ubuntu/GeekHubROR/Lesson_4/films_app/app/controllers/films_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	before_action :find_film only: [:show, :edit, :pdate, :dest
+	                             ^):
+  
+app/controllers/films_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+Started GET "/films/new" for 127.0.0.1 at 2017-10-29 04:14:37 -0700
+Processing by FilmsController#new as HTML
+  Rendering films/new.html.erb within layouts/application
+  Rendered films/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 1066ms (Views: 1045.6ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/films" for 127.0.0.1 at 2017-10-29 04:15:15 -0700
+Processing by FilmsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o2D5PPMEGZjshGK8IloZe2tBksoxG9/zQwWbEdrKct5E+n9a5vg+vU+CXFi38JJ/bJ1Y5iPEJaIZG3E+6OOOAA==", "film"=>{"name"=>"The Dark Tower", "year"=>"2017", "producer"=>"Nikolay Arsel"}, "commit"=>"Create Film"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "films" ("name", "year", "producer", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "The Dark Tower"], ["year", 2017], ["producer", "Nikolay Arsel"], ["created_at", "2017-10-29 11:15:15.977141"], ["updated_at", "2017-10-29 11:15:15.977141"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/films
+Completed 302 Found in 9ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:15:15 -0700
+Processing by FilmsController#index as HTML
+Completed 406 Not Acceptable in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (FilmsController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/films" for 127.0.0.1 at 2017-10-29 04:16:03 -0700
+Processing by FilmsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o2D5PPMEGZjshGK8IloZe2tBksoxG9/zQwWbEdrKct5E+n9a5vg+vU+CXFi38JJ/bJ1Y5iPEJaIZG3E+6OOOAA==", "film"=>{"name"=>"John Wick: Chapter Two", "year"=>"2017", "producer"=>"Chad Stahelski"}, "commit"=>"Create Film"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "films" ("name", "year", "producer", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "John Wick: Chapter Two"], ["year", 2017], ["producer", "Chad Stahelski"], ["created_at", "2017-10-29 11:16:03.068443"], ["updated_at", "2017-10-29 11:16:03.068443"]]
+  [1m[35m (161.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/films
+Completed 302 Found in 167ms (ActiveRecord: 162.8ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:16:03 -0700
+Processing by FilmsController#index as HTML
+Completed 406 Not Acceptable in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (FilmsController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:19:03 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.6ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (362.5ms)
+Completed 500 Internal Server Error in 366ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `films' for #<#<Class:0x80eb2c94>:0xb4120e58>
+Did you mean?  film
+               @films
+               fields):
+    3: <% @films.each do |film| %>
+    4: 	<%= film.name %>
+    5: 
+    6: 	<%= link_to 'Show', films %>
+    7: 	<%= link_to 'Edit', edit_film_path(film) %>
+    8: 	<%= link_to 'Destroy', films, method: :delete %><br>
+    9: 	<% end %>
+  
+app/views/films/index.html.erb:6:in `block in _app_views_films_index_html_erb___1058346443__636940948'
+app/views/films/index.html.erb:3:in `_app_views_films_index_html_erb___1058346443__636940948'
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:19:15 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (8.8ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (60.4ms)
+Completed 200 OK in 132ms (Views: 121.2ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/films/1" for 127.0.0.1 at 2017-10-29 04:19:18 -0700
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 26ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::UnknownFormat (FilmsController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:19:20 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:22:17 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/films/1" for 127.0.0.1 at 2017-10-29 04:22:18 -0700
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering films/show.html.erb within layouts/application
+  Rendered films/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/films/1" for 127.0.0.1 at 2017-10-29 04:22:25 -0700
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering films/show.html.erb within layouts/application
+  Rendered films/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 54ms (Views: 51.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/films/1" for 127.0.0.1 at 2017-10-29 04:22:29 -0700
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering films/show.html.erb within layouts/application
+  Rendered films/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 29ms (Views: 26.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/films/1" for 127.0.0.1 at 2017-10-29 04:22:33 -0700
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering films/show.html.erb within layouts/application
+  Rendered films/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/films/1" for 127.0.0.1 at 2017-10-29 04:22:39 -0700
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering films/show.html.erb within layouts/application
+  Rendered films/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 56ms (Views: 53.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/films/1" for 127.0.0.1 at 2017-10-29 04:22:40 -0700
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering films/show.html.erb within layouts/application
+  Rendered films/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:22:41 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 35ms (Views: 32.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/films/2" for 127.0.0.1 at 2017-10-29 04:22:43 -0700
+Processing by FilmsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering films/show.html.erb within layouts/application
+  Rendered films/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 58ms (Views: 55.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:22:51 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:26:46 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 35ms (Views: 32.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/films/2/edit" for 127.0.0.1 at 2017-10-29 04:26:47 -0700
+Processing by FilmsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering films/edit.html.erb within layouts/application
+  Rendered films/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/films/2/edit" for 127.0.0.1 at 2017-10-29 04:26:53 -0700
+Processing by FilmsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering films/edit.html.erb within layouts/application
+  Rendered films/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 43ms (Views: 40.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/films/2" for 127.0.0.1 at 2017-10-29 04:26:56 -0700
+Processing by FilmsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7782QFZp3DGG/IeWBbXr4ELaLJjIw11W58XQKnBg/TkIJbAmQ5X7FCX6uXKQH2DkRQbmtNocpwe92zoFQkkB5w==", "film"=>{"name"=>"John Wick: Chapter Two2", "year"=>"2017", "producer"=>"Chad Stahelski"}, "commit"=>"Update Film", "id"=>"2"}
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "films" SET "name" = ?, "producer" = ?, "updated_at" = ? WHERE "films"."id" = ?[0m  [["name", "John Wick: Chapter Two2"], ["producer", "Chad Stahelski"], ["updated_at", "2017-10-29 11:26:56.645875"], ["id", 1]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "films" SET "name" = ?, "updated_at" = ? WHERE "films"."id" = ?[0m  [["name", "John Wick: Chapter Two2"], ["updated_at", "2017-10-29 11:26:56.659140"], ["id", 2]]
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 213ms (ActiveRecord: 15.5ms)
+
+
+  
+NameError (undefined local variable or method `films_params' for #<FilmsController:0xb2aeed74>
+Did you mean?  film_params):
+  
+app/controllers/films_controller.rb:21:in `update'
+Started PATCH "/films/2" for 127.0.0.1 at 2017-10-29 04:27:32 -0700
+Processing by FilmsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7782QFZp3DGG/IeWBbXr4ELaLJjIw11W58XQKnBg/TkIJbAmQ5X7FCX6uXKQH2DkRQbmtNocpwe92zoFQkkB5w==", "film"=>{"name"=>"John Wick: Chapter Two2", "year"=>"2017", "producer"=>"Chad Stahelski"}, "commit"=>"Update Film", "id"=>"2"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/films
+Completed 302 Found in 22ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:27:32 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:27:38 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/films/2/edit" for 127.0.0.1 at 2017-10-29 04:27:40 -0700
+Processing by FilmsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering films/edit.html.erb within layouts/application
+  Rendered films/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 32ms (Views: 28.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/films/2" for 127.0.0.1 at 2017-10-29 04:27:43 -0700
+Processing by FilmsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"44EoeQZt47F5iXTyQj5mOerx6FYe6oN0ma3CYzhJVq58ri0CWGR4GJWF8FADIMdi/W22srvI/KY6l8cu/UMJfQ==", "film"=>{"name"=>"John Wick: Chapter Two", "year"=>"2017", "producer"=>"Chad Stahelski"}, "commit"=>"Update Film", "id"=>"2"}
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "films" SET "name" = ?, "updated_at" = ? WHERE "films"."id" = ?[0m  [["name", "John Wick: Chapter Two"], ["updated_at", "2017-10-29 11:27:43.345450"], ["id", 1]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "films" SET "name" = ?, "updated_at" = ? WHERE "films"."id" = ?[0m  [["name", "John Wick: Chapter Two"], ["updated_at", "2017-10-29 11:27:43.355961"], ["id", 2]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/films
+Completed 302 Found in 22ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:27:43 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/films/2" for 127.0.0.1 at 2017-10-29 04:27:45 -0700
+Processing by FilmsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sSJVREDvbg7GPyEl/G2k0bldTGIEtpClTFw/Yj6haGBWuNMiVRNJK2U5H8Fpxy/VvoGGThZpavQWQtVNDIiUvg==", "id"=>"2"}
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/films_controller.rb:31:in `destroy'
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:27:53 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 46ms (Views: 42.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/films/2" for 127.0.0.1 at 2017-10-29 04:27:54 -0700
+Processing by FilmsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UxnDrLA6eDFHUQ7XqvVf9n71miMUkfUB6QQole3IT7O0g0XKpcZfFORXMDM/X9TyeSlQDwZOD1CzGsK63+GzbQ==", "id"=>"2"}
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/films_controller.rb:31:in `destroy'
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:28:51 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 41ms (Views: 36.6ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/films/2" for 127.0.0.1 at 2017-10-29 04:28:52 -0700
+Processing by FilmsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"EEcI/4tn784hK7TFlBqVDnWgLUcird72czGg1KDTPSX33Y6ZnpvI64ItiiEBsB4KcnznazByJKcpL0r7kvrB+w==", "id"=>"2"}
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/films_controller.rb:31:in `destroy'
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:28:56 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (24.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFilms (20171029105748)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "films" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "year" integer, "producer" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171029105748"]]
+  [1m[35m (23.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-29 11:29:45.206084"], ["updated_at", "2017-10-29 11:29:45.206084"]]
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:29:57 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.5ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 261ms (Views: 247.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/films/new" for 127.0.0.1 at 2017-10-29 04:30:01 -0700
+Processing by FilmsController#new as HTML
+  Rendering films/new.html.erb within layouts/application
+  Rendered films/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 50ms (Views: 35.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/films" for 127.0.0.1 at 2017-10-29 04:30:13 -0700
+Processing by FilmsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rIgdBYQrOfay7QSIrVV3lzDcMM5MNSFFYPGgl8WjNPRLEptjkdce0xHrOmw4//yTNwD64l7q2xQ670q494rIKg==", "film"=>{"name"=>"The Dark Tower", "year"=>"2017", "producer"=>"Nikolay Arsel"}, "commit"=>"Create Film"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "films" ("name", "year", "producer", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "The Dark Tower"], ["year", 2017], ["producer", "Nikolay Arsel"], ["created_at", "2017-10-29 11:30:13.749751"], ["updated_at", "2017-10-29 11:30:13.749751"]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/films
+Completed 302 Found in 14ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:30:13 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/films/new" for 127.0.0.1 at 2017-10-29 04:30:17 -0700
+Processing by FilmsController#new as HTML
+  Rendering films/new.html.erb within layouts/application
+  Rendered films/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/films" for 127.0.0.1 at 2017-10-29 04:30:25 -0700
+Processing by FilmsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KcgDKJcIsHFWx0YWs8aj61emV5r5FM8cvFPtHIsqGDXOUoVOgvSXVPXBePImbCjvUHqdtuvLNU3mTQczuQPk6w==", "film"=>{"name"=>"John Wick: Chapter Two", "year"=>"2017", "producer"=>"Chad Stahelski"}, "commit"=>"Create Film"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "films" ("name", "year", "producer", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "John Wick: Chapter Two"], ["year", 2017], ["producer", "Chad Stahelski"], ["created_at", "2017-10-29 11:30:25.019150"], ["updated_at", "2017-10-29 11:30:25.019150"]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/films
+Completed 302 Found in 15ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:30:25 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 33ms (Views: 30.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:30:26 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/films/2" for 127.0.0.1 at 2017-10-29 04:30:29 -0700
+Processing by FilmsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"z/7wfitN8/4Au8zW6BAyyWwN6wgTegBLF2posj2bVRMoZHYYPrHU26O98jJ9urnNa9EhJAGl+hpNdIKdD7KpzQ==", "id"=>"2"}
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/films_controller.rb:31:in `destroy'
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:32:14 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 44ms (Views: 40.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/films/2" for 127.0.0.1 at 2017-10-29 04:32:15 -0700
+Processing by FilmsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qP/aMSn01hvJ8XtAckP8tU2S3F89mqtDC4ITk8Mzho9PZVxXPAjxPmr3RaTn6XexSk4Wcy9FURJRnPm88Rp6UQ==", "id"=>"2"}
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "films" WHERE "films"."id" = ?[0m  [["id", 2]]
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/films
+Completed 302 Found in 15ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:32:15 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:32:16 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 04:32:44 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.3ms)
+
+
