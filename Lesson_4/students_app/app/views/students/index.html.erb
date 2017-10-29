@@ -1,0 +1,9 @@
+<h1> Index Student App </h1>
+
+<% @students.each do |student| %>
+	<%= student.first_name %>
+
+	<%= link_to 'Show', student %>
+	<%= link_to 'Edit', edit_student_path(student) %>
+	<%= link_to 'Destroy', student, method: :delete %><br>
+<% end %>
