@@ -22,7 +22,7 @@ class WorkersController < ApplicationController
   end
 
   def update
-    Worker.update(params.require(:worker).permit(:name, :post))
+    @worker.update(params.require(:worker).permit(:name, :post))
 
     redirect_to workers_path
   end

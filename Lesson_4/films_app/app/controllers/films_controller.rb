@@ -16,7 +16,7 @@ class FilmsController < ApplicationController
   end
 
   def update
-    Film.update(film_params)
+    @film.update(film_params)
 
     redirect_to films_path
   end

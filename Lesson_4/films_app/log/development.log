@@ -724,3 +724,69 @@ Processing by FilmsController#index as HTML
 Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/films" for 127.0.0.1 at 2017-10-29 06:09:35 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 306ms (Views: 289.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/films/new" for 127.0.0.1 at 2017-10-29 06:09:41 -0700
+Processing by FilmsController#new as HTML
+  Rendering films/new.html.erb within layouts/application
+  Rendered films/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 68ms (Views: 66.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/films" for 127.0.0.1 at 2017-10-29 06:09:48 -0700
+Processing by FilmsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XdafVjx/ugO27yWiQc+D3yyUKCG0oh3fw1yvjvvKb+q6TBkwKYOdJhXpG0bUZQjbK0jiDaZ9546ZQkWhyeOTNA==", "film"=>{"name"=>"asdxczxc", "year"=>"2412", "producer"=>"vsdfsdf"}, "commit"=>"Create Film"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "films" ("name", "year", "producer", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "asdxczxc"], ["year", 2412], ["producer", "vsdfsdf"], ["created_at", "2017-10-29 13:09:48.040684"], ["updated_at", "2017-10-29 13:09:48.040684"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/films
+Completed 302 Found in 17ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 06:09:48 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.5ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/films/3/edit" for 127.0.0.1 at 2017-10-29 06:09:49 -0700
+Processing by FilmsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFilm Load (0.9ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering films/edit.html.erb within layouts/application
+  Rendered films/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 71ms (Views: 64.5ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/films/3" for 127.0.0.1 at 2017-10-29 06:09:56 -0700
+Processing by FilmsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9MnNJt0uOSnYY4gS9Ls0eWvj2bIN1V8FuEemMrCGE8cU4o11n5mC5QfVvGjD1QpLlkvaxzDfL7KAYtSoOF5lkw==", "film"=>{"name"=>"vffffffffffff", "year"=>"4444", "producer"=>"vvvvvvvvv"}, "commit"=>"Update Film", "id"=>"3"}
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "films" SET "name" = ?, "year" = ?, "producer" = ?, "updated_at" = ? WHERE "films"."id" = ?[0m  [["name", "vffffffffffff"], ["year", 4444], ["producer", "vvvvvvvvv"], ["updated_at", "2017-10-29 13:09:56.060634"], ["id", 1]]
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "films" SET "name" = ?, "year" = ?, "producer" = ?, "updated_at" = ? WHERE "films"."id" = ?[0m  [["name", "vffffffffffff"], ["year", 4444], ["producer", "vvvvvvvvv"], ["updated_at", "2017-10-29 13:09:56.069401"], ["id", 3]]
+  [1m[35m (24.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/films
+Completed 302 Found in 41ms (ActiveRecord: 30.7ms)
+
+
+Started GET "/films" for 127.0.0.1 at 2017-10-29 06:09:56 -0700
+Processing by FilmsController#index as HTML
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films"[0m
+  Rendered films/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.3ms)
+
+

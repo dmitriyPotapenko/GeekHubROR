@@ -22,7 +22,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    Book.update(params.require(:book).permit(:name, :author))
+    @book.update(params.require(:book).permit(:name, :author))
 
     redirect_to books_path
   end
