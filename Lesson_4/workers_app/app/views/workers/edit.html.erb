@@ -1,0 +1,9 @@
+<h1> Edit Worker Info </h1>
+
+<%= form_for @worker do |f| %>
+	<%= 'Name:'%><br>
+	<%= f.text_field :name %><br>
+	<%= 'Post:'%><br>
+	<%= f.text_field :post %><br><br>
+	<%= f.submit %>
+<% end %>

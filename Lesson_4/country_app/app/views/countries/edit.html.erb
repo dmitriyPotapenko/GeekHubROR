@@ -1,7 +1,9 @@
 <h1> Edit Countries </h1>
 
 <%= form_for @country do |f| %>
-  <%= f.text_field :name %>
-  <%= f.number_field :population %>
+	<%= 'Name: ' %><br>
+  <%= f.text_field :name %><br>
+  <%= 'Population: ' %><br>
+  <%= f.number_field :population %><br><br>
   <%= f.submit %>
 <% end %>

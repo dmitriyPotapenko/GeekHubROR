@@ -1,0 +1,9 @@
+<h1> Index Workers App </h1>
+
+<% @workers.each do |worker| %>
+	<%= worker.name %>
+
+	<%= link_to 'Show', worker %>
+	<%= link_to 'Edit', edit_worker_path(worker) %>
+	<%= link_to 'Destroy', worker, method: :delete %><br>
+<% end %>
