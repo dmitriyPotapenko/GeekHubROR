@@ -1,0 +1,11 @@
+<h1> Edit Accidents Info </h1>
+
+<%= form_for @accident do |f| %>
+	<%= 'City: ' %><br>
+	<%= f.text_field :city %><br>
+	<%= 'Category: ' %><br>
+	<%= f.number_field :category %><br>
+	<%= 'Victims: ' %><br>
+	<%= f.number_field :victims %><br><br>
+	<%= f.submit %>
+<% end %>

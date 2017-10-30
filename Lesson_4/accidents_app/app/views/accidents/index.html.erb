@@ -1,0 +1,9 @@
+<h1> Index Accident App </h1>
+
+<% @accidents.each do |accident| %>
+	<%= accident.city %>
+
+	<%= link_to 'Show', accident %>
+	<%= link_to 'Edit', edit_accident_path(accident) %>
+	<%= link_to 'Destroy', accident, method: :delete %><br>
+<% end %>
