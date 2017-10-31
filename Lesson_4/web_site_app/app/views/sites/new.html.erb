@@ -1,0 +1,11 @@
+<h1> New Web Site </h1>
+
+<%= form_for @sites do |f| %>
+	<%= 'Name: ' %><br>
+	<%= f.text_field :name %><br>
+	<%= 'Address: ' %><br>
+	<%= f.text_field :address %><br>
+	<%= 'Description:' %><br>
+	<%= f.text_field :description %><br><br>
+	<%= f.submit %>
+<% end %>

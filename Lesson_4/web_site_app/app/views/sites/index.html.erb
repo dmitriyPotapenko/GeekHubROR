@@ -1,0 +1,9 @@
+<h1> Index Web Site App </h1>
+
+<% @sites.each do |site| %>
+	<%= site.name %>
+
+	<%= link_to 'Show', site %>
+	<%= link_to 'Edit', edit_site_path(site) %>
+	<%= link_to 'Destroy', site, method: :delete %><br>
+<% end %>
