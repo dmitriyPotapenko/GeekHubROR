@@ -1,0 +1,9 @@
+<h1> Index Customer App </h1>
+
+<% @customers.each do |customer| %>
+	<%= customer.name %>
+
+	<%= link_to 'Show', customer %>
+	<%= link_to 'Edit', edit_customer_path(customer) %>
+	<%= link_to 'Destroy', customer, method: :delete %><br>
+<% end %>
