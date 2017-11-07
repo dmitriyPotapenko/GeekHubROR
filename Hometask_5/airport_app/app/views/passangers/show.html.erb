@@ -1,0 +1,8 @@
+<h1> Show Passanger Info </h1>
+
+<%= 'First name:' %>
+<%= @passanger.first_name %><br>
+<%= 'Second name:' %>
+<%= @passanger.second_name %><br><br>
+<br><%= link_to 'New Ticket', new_passanger_ticket_path(@passanger) %><br>
+<%= link_to 'Back', passangers_path %>

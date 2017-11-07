@@ -1,0 +1,10 @@
+<h1> Edit Passanger Info </h1>
+
+<%= form_for @passanger do |f| %>
+	<%= 'First name:' %><br>
+	<%= f.text_field :first_name %><br>
+	<%= 'Second name:' %><br>
+	<%= f.text_field :second_name %><br><br>
+	<%= f.submit %>
+<% end %>
+<br><%= link_to 'Back', passangers_path %>

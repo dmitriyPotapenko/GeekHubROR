@@ -1,0 +1,10 @@
+<h1> Index Planes </h1>
+
+<% @planes.each do |plane| %>
+<%= plane.name %>
+
+<%= link_to 'Show', plane %>
+<%= link_to 'Edit', edit_plane_path(plane) %>
+<%= link_to 'Destroy', plane, method: :delete %><br>
+<% end %>
+<br><%= link_to 'Back', root_path %>

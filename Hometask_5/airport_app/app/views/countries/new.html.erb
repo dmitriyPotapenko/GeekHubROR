@@ -1,0 +1,8 @@
+<h1> New country </h1>
+
+<%= form_for @countries do |f| %>
+	<%= 'Name:' %><br>
+	<%= f.text_field :name %><br><br>
+	<%= f.submit %>
+<% end %>
+<br><%= link_to 'Back', countries_path %>

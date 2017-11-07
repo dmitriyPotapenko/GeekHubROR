@@ -1,0 +1,8 @@
+<h1><%= 'Show' %>
+<%= @airport.name %>
+<%= 'Info' %></h1>
+
+<%= @airport.name %><br>
+
+<br><%= link_to 'New Plane', new_airport_plane_path(@airport) %><br>
+<%= link_to 'Back', city_airports_path(:city_id) %>

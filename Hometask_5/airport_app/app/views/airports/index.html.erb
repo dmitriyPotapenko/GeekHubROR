@@ -1,0 +1,10 @@
+<h1> Index Airports </h1>
+
+<% @airports.each do |airport| %>
+<%= airport.name %>
+
+<%= link_to 'Show', airport %>
+<%= link_to 'Edit', edit_airport_path(airport) %>
+<%= link_to 'Destroy', airport, method: :delete %><br>
+<% end %>
+<br><%= link_to 'Back', root_path %>

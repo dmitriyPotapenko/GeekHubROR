@@ -1,0 +1,10 @@
+<h1> Index Cities </h1>
+
+<% @cities.each do |city| %>
+<%= city.name %>
+
+<%= link_to 'Show', city %>
+<%= link_to 'Edit', edit_city_path(city) %>
+<%= link_to 'Destroy', city, method: :delete %><br>
+<% end %>
+<br><%= link_to 'Back', root_path %>

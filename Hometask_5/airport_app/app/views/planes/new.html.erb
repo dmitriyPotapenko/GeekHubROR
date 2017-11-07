@@ -1,0 +1,8 @@
+<h1> New Plane </h1>
+
+<%= form_with scope: :plane, url: airport_planes_path, local: true do |f| %>
+	<%= 'Name:' %><br>
+	<%= f.text_field :name %><br><br>
+	<%= f.submit %>
+<% end %>
+<br><%= link_to 'Back', airport_path(params[:airport_id]) %>

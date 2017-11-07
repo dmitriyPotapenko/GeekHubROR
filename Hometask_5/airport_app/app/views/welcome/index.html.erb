@@ -1,0 +1,8 @@
+<h1>Welcome to Airport App</h1>
+
+<%= link_to 'Countries', countries_path %><br>
+<%= link_to 'Cities', country_cities_path(:country_id) %><br>
+<%= link_to 'Airports', city_airports_path(:city_id) %><br>
+<%= link_to 'Planes', airport_planes_path(:airport_id) %><br>
+<%= link_to 'Passangers', passangers_path %><br>
+<%= link_to 'Tickets', passanger_tickets_path(:passanger_id) %>

@@ -1,0 +1,12 @@
+<h1> Index Tickets </h1>
+
+<% @tickets.each do |ticket| %>
+	<%= ticket.name %>
+
+<%= link_to 'Show', ticket %>
+<%= link_to 'Edit', edit_ticket_path(ticket) %>
+<%= link_to 'Destroy', ticket, method: :delete %><br>
+
+<% end %>
+
+<br><%= link_to 'Back', root_path %>
