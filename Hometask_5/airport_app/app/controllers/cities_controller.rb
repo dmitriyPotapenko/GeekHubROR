@@ -1,50 +1,48 @@
 class CitiesController < ApplicationController
-	before_action :find_city, only: [:show, :edit, :update, :destroy]
-	before_action :find_country, only: [:create]
+  before_action :find_city, only: %i[show edit update destroy]
+  before_action :find_country, only: [:create]
 
-	def index
-		@cities = City.all
-	end
-	
-	def new
-		@city = City.new
-	end
+  def index
+    @cities = City.all
+  end
 
-	def create
-		@city = @country.cities.create(city_params)
+  def new
+    @city = City.new
+  end
 
-		redirect_to countries_path
-	end
+  def create
+    @city = @country.cities.create(city_params)
 
-	def show
-	end
+    redirect_to countries_path
+  end
 
-	def edit
-	end
+  def show; end
 
-	def update
-		@city.update(city_params)
+  def edit; end
 
-		redirect_to city_path(@city)
-	end
+  def update
+    @city.update(city_params)
 
-	def destroy
-		@city.destroy
+    redirect_to city_path(@city)
+  end
 
-		redirect_to country_path(@city.country)
-	end
+  def destroy
+    @city.destroy
 
-	private
+    redirect_to country_path(@city.country)
+  end
 
-	def city_params
-		params.require(:city).permit(:name, :country_id)
-	end
+  private
 
-	def find_city
-		@city = City.find(params[:id])
-	end
+  def city_params
+    params.require(:city).permit(:name, :country_id)
+  end
 
-	def find_country
-		@country = Country.find(params[:country_id])
-	end
+  def find_city
+    @city = City.find(params[:id])
+  end
+
+  def find_country
+    @country = Country.find(params[:country_id])
+  end
 end

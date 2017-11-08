@@ -1,0 +1,14 @@
+<h1> New Tourist </h1>
+
+<%= link_to 'Hotels', city_hotels_path(:city_id) %>
+<%= ' | ' %>
+<%= link_to 'All Tourists', hotel_tourists_path(:hotel_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<%= form_with scope: :tourist, url: hotel_tourists_path, local: true do |f| %>
+<%= 'First Name:' %><br>
+<%= f.text_field :first_name %><br>
+<%= 'Second Name:' %><br>
+<%= f.text_field :second_name %><br><br>
+<%= f.submit %>
+<% end %>

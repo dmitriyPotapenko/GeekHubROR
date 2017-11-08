@@ -1,0 +1,14 @@
+<h1><%= 'Show ' %>
+<%= @city.name %>
+<%= 'Info' %></h1>
+
+<%= link_to 'All Cities', country_cities_path(:country) %>
+<%= ' | ' %>
+<%= link_to 'New Hotel', new_city_hotel_path(@city) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<% @city.hotels.each do |hotel| %>
+<%= 'Hotel:' %><br>
+<%= hotel.name %>
+<% end %>

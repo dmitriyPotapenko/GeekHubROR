@@ -1,0 +1,12 @@
+<h1><%= 'Show ' %>
+<%= @tourist.second_name %>
+<%= 'Info' %></h1>
+
+<%= link_to 'All Tourists', hotel_tourists_path(:hotel_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<%= 'First Name: ' %>
+<%= @tourist.first_name %><br>
+<%= 'Second Name: ' %>
+<%= @tourist.second_name %>

@@ -1,0 +1,11 @@
+<h1> Index Countries </h1>
+
+<%= link_to 'Continents', continents_path %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<% @countries.each do |country| %>
+	<%= country.name %>
+	<%= link_to 'Show', country %>
+	<%= link_to 'Edit', edit_country_path(country) %>
+	<%= link_to 'Destroy', country, method: :delete %><br>
+	<%end%>

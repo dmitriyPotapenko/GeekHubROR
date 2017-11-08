@@ -1,0 +1,14 @@
+<h1><%= 'Show ' %>
+<%= @employee.second_name %>
+<%= 'Info' %></h1>
+
+<%= link_to 'All Employees', position_employees_path(:position_id) %>
+<%= ' | ' %>
+<%= link_to 'New Work', new_employee_work_path(@employee) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<%= 'Second Name: ' %>
+<%= @employee.second_name %><br>
+<%= 'First Name: ' %>
+<%= @employee.first_name %><br>

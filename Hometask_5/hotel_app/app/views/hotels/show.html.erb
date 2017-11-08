@@ -1,0 +1,30 @@
+<h1><%= 'Show ' %>
+<%= @hotel.name %>
+<%= 'Info' %></h1>
+
+<%= link_to 'All Hotels', country_cities_path(:country) %>
+<%= ' | ' %>
+<%= link_to 'New Tourist', new_hotel_tourist_path(@hotel) %>
+<%= ' | ' %>
+<%= link_to 'New Entertainment', new_hotel_entertainment_path(@hotel) %>
+<%= ' | ' %>
+<%= link_to 'New Position', new_hotel_position_path(@hotel) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<% @hotel.tourists.each do |tourist| %>
+<br>	<%= 'Tourists:' %><br>
+	<%= tourist.second_name %>
+	<%= ', ' %>
+	<%= tourist.first_name %><br>
+<% end %>
+
+<% @hotel.entertainments.each do |entertainment| %>
+	<br><%= 'Entertainments:' %><br>
+	<%= entertainment.kind_of %><br>
+<% end %>
+
+<% @hotel.positions.each do |position| %>
+	<br><%= 'Positions:' %><br>
+	<%= position.name %><br>
+<% end %>

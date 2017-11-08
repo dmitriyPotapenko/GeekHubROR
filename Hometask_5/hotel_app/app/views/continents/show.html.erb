@@ -1,0 +1,13 @@
+<h1><%= 'Show ' %>
+<%=  @continent.name %>
+<%= 'Info' %></h1>
+<%= link_to 'All Continents', continents_path %>
+<%= ' | ' %>
+<%= link_to 'New Country', new_continent_country_path(@continent) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<% @continent.countries.each do |country| %>
+<%= 'Countries:' %><br>
+	<%= country.name %>
+	<% end %>

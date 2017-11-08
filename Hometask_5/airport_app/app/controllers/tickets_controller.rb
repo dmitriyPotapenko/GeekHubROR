@@ -1,50 +1,48 @@
 class TicketsController < ApplicationController
-	before_action :find_ticket, only: [:show, :edit, :update, :destroy]
-	before_action :find_passanger, only: [:create]
+  before_action :find_ticket, only: %i[show edit update destroy]
+  before_action :find_passanger, only: [:create]
 
-	def index
-		@tickets = Ticket.all 
-	end
+  def index
+    @tickets = Ticket.all
+  end
 
-	def new
-		@ticket = Ticket.new
-	end
+  def new
+    @ticket = Ticket.new
+  end
 
-	def create
-		@ticket = @passanger.tickets.create(ticket_params)
+  def create
+    @ticket = @passanger.tickets.create(ticket_params)
 
-		redirect_to passanger_tickets_path(:passanger_id)
-	end
+    redirect_to passanger_tickets_path(:passanger_id)
+  end
 
-	def show
-	end
+  def show; end
 
-	def edit
-	end
+  def edit; end
 
-	def update
-		@ticket.update(ticket_params)
+  def update
+    @ticket.update(ticket_params)
 
-		redirect_to passanger_tickets_path(:passanger_id)
-	end
+    redirect_to passanger_tickets_path(:passanger_id)
+  end
 
-	def destroy
-		@ticket.destroy
+  def destroy
+    @ticket.destroy
 
-		redirect_to passanger_tickets_path(:passanger_id)
-	end
+    redirect_to passanger_tickets_path(:passanger_id)
+  end
 
-	private
+  private
 
-	def find_ticket
-		@ticket = Ticket.find(params[:id])
-	end
+  def find_ticket
+    @ticket = Ticket.find(params[:id])
+  end
 
-	def find_passanger
-		@passanger = Passanger.find(params[:passanger_id])
-	end
+  def find_passanger
+    @passanger = Passanger.find(params[:passanger_id])
+  end
 
-	def ticket_params
-		params.require(:ticket).permit(:name, :passanger_id)
-	end
+  def ticket_params
+    params.require(:ticket).permit(:name, :passanger_id)
+  end
 end

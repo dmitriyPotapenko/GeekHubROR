@@ -1,0 +1,11 @@
+<h1> Index Hotels </h1>
+
+<%= link_to 'Cities', country_cities_path(:country_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<% @hotels.each do |hotel| %>
+	<%= hotel.name %>
+	<%= link_to 'Show', hotel %>
+	<%= link_to 'Edit', edit_hotel_path(hotel) %>
+	<%= link_to 'Destroy', hotel, method: :delete %><br>
+	<%end%>

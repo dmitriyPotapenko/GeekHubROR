@@ -1,0 +1,12 @@
+<h1> Index Employees </h1>
+
+<%= link_to 'Positions', hotel_positions_path(:hotel_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<% @employees.each do |employee| %>
+	<%= employee.second_name %>
+	<%= link_to 'Show', employee %>
+	<%= link_to 'Edit', edit_employee_path(employee) %>
+	<%= link_to 'Destroy', employee, method: :delete %><br>
+<% end %>

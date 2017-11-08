@@ -1,0 +1,12 @@
+<h1> Index Entertainments </h1>
+
+<%= link_to 'Hotels', city_hotels_path(:city_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<% @entertainments.each do |entertainment| %>
+	<%= entertainment.kind_of %>
+	<%= link_to 'Show', entertainment %>
+	<%= link_to 'Edit', edit_entertainment_path(entertainment) %>
+	<%= link_to 'Destroy', entertainment, method: :delete %><br>
+<% end %>
