@@ -2,11 +2,12 @@ class ContinentsController < ApplicationController
   before_action :find_continent, only: %i[show edit update destroy]
 
   def index
-    @continents = Continent.all
+    @continents = Continent.paginate(:page => params[:page])
   end
 
   def new
     @continent = Continent.new
+    @continent.countries.build
   end
 
   def create
@@ -38,6 +39,6 @@ class ContinentsController < ApplicationController
   end
 
   def continent_params
-    params.require(:continent).permit(:name)
+    params.require(:continent).permit(:name, :image, countries_attributes: [:name])
   end
 end

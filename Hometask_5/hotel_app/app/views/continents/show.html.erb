@@ -1,5 +1,6 @@
 <h1><%= 'Show ' %>
-<%=  @continent.name %>
+<%=  @continent.name %><br>
+<%= image_tag(@continent.image_url(:thumb)) %>
 <%= 'Info' %></h1>
 <%= link_to 'All Continents', continents_path %>
 <%= ' | ' %>

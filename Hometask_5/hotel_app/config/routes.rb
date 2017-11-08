@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'products/new'
+
+  get 'products/create'
+
   root 'welcome#index'
+
+  resources :products
 
   resources :continents, shallow: true do
     resources :countries, shallow: true do
