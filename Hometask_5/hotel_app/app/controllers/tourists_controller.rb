@@ -23,13 +23,13 @@ class TouristsController < ApplicationController
   def update
     @tourist.update(tourist_params)
 
-    redirect_to hotel_tourists_path
+    redirect_to tourist_path
   end
 
   def destroy
     @tourist.destroy
 
-    redirect_to hotel_tourists_path
+    redirect_to tourist_path
   end
 
   private
