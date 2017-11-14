@@ -1,7 +1,7 @@
 <h1><%= 'Show ' %>
 <%= @entertainment.kind_of %>
 <%= 'Info' %></h1>
-
+<%= image_tag(@entertainment.avatar_url(:thumb)) %><br>
 <%= link_to 'All Entertainments', hotel_entertainments_path(:hotel_id) %>
 <%= ' | ' %>
 <%= link_to 'Home Page', root_path %><br><br>

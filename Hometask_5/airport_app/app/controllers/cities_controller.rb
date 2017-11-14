@@ -1,7 +1,7 @@
 class CitiesController < ApplicationController
   before_action :find_city, only: %i[show edit update destroy]
   before_action :find_country, only: [:create]
-
+    
   def index
     @cities = City.all
   end
@@ -35,7 +35,7 @@ class CitiesController < ApplicationController
   private
 
   def city_params
-    params.require(:city).permit(:name, :country_id)
+    params.require(:city).permit(:name, :avatar, :country_id)
   end
 
   def find_city

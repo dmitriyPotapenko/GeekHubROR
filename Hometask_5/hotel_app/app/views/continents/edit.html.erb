@@ -8,5 +8,7 @@
 <%= form_for @continent do |f| %>
 <%= 'Name:' %><br><br>
 <%= f.text_field :name %><br><br>
+<%= 'Select New Continent Map:' %>
+<%= f.file_field :avatar %><br><br>
 <%= f.submit %>
 <% end %>

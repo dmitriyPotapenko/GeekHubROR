@@ -3,7 +3,7 @@ class CitiesController < ApplicationController
   before_action :find_country, only: [:create]
 
   def index
-    @cities = City.all
+    @cities = City.paginate(:page => params[:page], :per_page => 1)
   end
 
   def new
@@ -43,6 +43,6 @@ class CitiesController < ApplicationController
   end
 
   def city_params
-    params.require(:city).permit(:name, :country_id)
+    params.require(:city).permit(:name, :avatar, :country_id)
   end
 end

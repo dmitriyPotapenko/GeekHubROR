@@ -3,7 +3,7 @@ class CountriesController < ApplicationController
   before_action :find_continent, only: [:create]
 
   def index
-    @countries = Country.all
+    @countries = Country.paginate(:page => params[:page], :per_page => 1)
   end
 
   def new
@@ -43,6 +43,6 @@ class CountriesController < ApplicationController
   end
 
   def country_params
-    params.require(:country).permit(:name, :continent_id)
+    params.require(:country).permit(:name, :avatar, :continent_id)
   end
 end

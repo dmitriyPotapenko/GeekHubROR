@@ -1,6 +1,7 @@
 class PlanesController < ApplicationController
   before_action :find_plane, only: %i[show edit update destroy]
   before_action :find_airport, only: [:create]
+  
 
   def index
     @planes = Plane.all

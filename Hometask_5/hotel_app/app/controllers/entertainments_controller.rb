@@ -43,6 +43,6 @@ class EntertainmentsController < ApplicationController
   end
 
   def entertainment_params
-    params.require(:entertainment).permit(:kind_of, :hotel_id)
+    params.require(:entertainment).permit(:kind_of, :avatar, :hotel_id)
   end
 end

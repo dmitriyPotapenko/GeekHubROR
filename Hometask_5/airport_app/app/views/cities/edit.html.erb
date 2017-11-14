@@ -1,4 +1,6 @@
-<h1> Edit City Info </h1>
+<h1><%= 'Edit' %>
+<%= @city.name %>
+<%= 'Info' %></h1>
 
 <%= form_with model: @city, local: true do |f| %>
 	<%= 'Name:' %><br>

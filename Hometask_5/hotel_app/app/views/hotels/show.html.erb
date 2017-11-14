@@ -1,7 +1,7 @@
 <h1><%= 'Show ' %>
 <%= @hotel.name %>
 <%= 'Info' %></h1>
-
+<%= image_tag(@hotel.avatar_url(:thumb)) %><br>
 <%= link_to 'All Hotels', country_cities_path(:country) %>
 <%= ' | ' %>
 <%= link_to 'New Tourist', new_hotel_tourist_path(@hotel) %>

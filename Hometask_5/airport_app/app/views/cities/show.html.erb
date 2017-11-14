@@ -1,6 +1,7 @@
 <h1><%= 'Show' %>
 <%= @city.name %>
 <%= 'Info' %></h1>
+<%= image_tag(@city.avatar_url(:thumb)) %><br><br>
 <%= link_to 'New Airport', new_city_airport_path(@city) %>
 <%= ' | ' %>
 <%= link_to 'Home', root_path %><br><br>

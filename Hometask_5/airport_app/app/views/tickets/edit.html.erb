@@ -1,0 +1,8 @@
+<h1> Edit Ticket Info</h1>
+
+<%= form_with scope: :ticket, url: ticket_path, local: true do |f| %>
+	<%= 'Name:' %><br>
+	<%= f.text_field :name %><br><br>
+	<%= f.submit %>
+<% end %>
+<br><%= link_to 'Back', ticket_path(params[:passanger_id]) %>

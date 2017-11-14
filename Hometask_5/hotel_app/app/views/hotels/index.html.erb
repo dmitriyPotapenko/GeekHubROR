@@ -9,3 +9,5 @@
 	<%= link_to 'Edit', edit_hotel_path(hotel) %>
 	<%= link_to 'Destroy', hotel, method: :delete %><br>
 	<%end%>
+	<br><br>
+	<%= will_paginate @hotels %>

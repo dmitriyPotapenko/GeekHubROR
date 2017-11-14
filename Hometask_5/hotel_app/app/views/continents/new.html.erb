@@ -4,7 +4,9 @@
 <%= ' | ' %>
 <%= link_to 'Home Page', root_path %><br><br>
 <%= form_for @continent do |f| %>
-<%= 'Name:' %><br><br>
-<%= f.text_field :name %><br><br>
-<%= f.submit %>
+  <%= 'Name:' %><br><br>
+  <%= f.text_field :name %><br><br>
+  <%= 'Select Continent Map:' %>
+  <%= f.file_field :avatar %><br><br>
+  <%= f.submit %>
 <% end %>

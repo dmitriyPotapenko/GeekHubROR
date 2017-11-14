@@ -6,5 +6,7 @@
 <%= form_with scope: :country, url: continent_countries_path, local: true do |f| %>
 <%= 'Name:' %><br><br>
 <%= f.text_field :name %><br><br>
+<%= 'Select Country Flag:' %>
+<%= f.file_field :avatar %><br><br>
 <%= f.submit %>
 <% end %>

@@ -8,5 +8,7 @@
 <%= form_with scope: :hotel, url: city_hotels_path, local: true do |f| %>
 <%= 'Name:' %><br><br>
 <%= f.text_field :name %><br><br>
+<%= 'Select Hotel Signboard:' %>
+<%= f.file_field :avatar %><br><br>
 <%= f.submit %>
 <% end %>

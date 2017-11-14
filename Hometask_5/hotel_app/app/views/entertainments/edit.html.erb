@@ -8,5 +8,7 @@
 <%= form_with model: @entertainment, local: true do |f| %>
 <%= 'Type of entertainment:' %><br><br>
 <%= f.text_field :kind_of %><br><br>
+<%= 'Select New Signboard:' %>
+<%= f.file_field :avatar %><br><br>
 <%= f.submit %>
 <% end %>

@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
   before_action :find_ticket, only: %i[show edit update destroy]
   before_action :find_passanger, only: [:create]
-
+  
   def index
     @tickets = Ticket.all
   end

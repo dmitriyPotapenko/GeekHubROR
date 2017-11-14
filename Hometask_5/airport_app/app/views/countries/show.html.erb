@@ -1,10 +1,11 @@
 <h1><%= 'Show' %>
 <%= @country.name %>
 <%= 'Info' %></h1>
+<%= image_tag(@country.avatar_url(:thumb)) %><br><br>
 <%= link_to 'New City', new_country_city_path(@country) %>
 <%= ' | ' %>
 <%= link_to 'Back', countries_path %><br><br>
-<%= 'Cities:' %><br>
 <% @country.cities.each do |city| %>
+<%= 'Cities:' %><br>
 <%= city.name %><br>
 <% end %>

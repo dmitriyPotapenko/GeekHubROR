@@ -1,7 +1,7 @@
 <h1><%= 'Show ' %>
 <%= @employee.second_name %>
 <%= 'Info' %></h1>
-
+<%= image_tag(@employee.avatar_url(:thumb)) %><br>
 <%= link_to 'All Employees', position_employees_path(:position_id) %>
 <%= ' | ' %>
 <%= link_to 'New Work', new_employee_work_path(@employee) %>

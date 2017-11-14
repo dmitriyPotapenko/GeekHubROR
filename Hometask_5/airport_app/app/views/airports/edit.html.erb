@@ -1,5 +1,6 @@
-<h1> Edit Airport Info </h1>
-
+<h1><%= 'Edit' %>
+<%= @airport.name %>
+<%= 'Info' %></h1>
 <%= form_with scope: :airport, url: @airport, local: true do |f| %>
 	<%= 'Name:' %><br>
 	<%= f.text_field :name %><br><br>

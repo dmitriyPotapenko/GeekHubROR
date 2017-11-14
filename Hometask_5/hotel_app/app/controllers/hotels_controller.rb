@@ -3,7 +3,7 @@ class HotelsController < ApplicationController
   before_action :find_city, only: [:create]
 
   def index
-    @hotels = Hotel.all
+    @hotels = Hotel.paginate(:page => params[:page], :per_page => 1)
   end
 
   def new
@@ -43,6 +43,6 @@ class HotelsController < ApplicationController
   end
 
   def hotel_params
-    params.require(:hotel).permit(:name, :city_id)
+    params.require(:hotel).permit(:name, :avatar, :city_id)
   end
 end
