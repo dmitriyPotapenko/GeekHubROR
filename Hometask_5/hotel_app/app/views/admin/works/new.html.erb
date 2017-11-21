@@ -1,0 +1,12 @@
+<h1> New Work </h1>
+
+<%= link_to 'Employees', admin_position_employees_path(:position_id) %>
+<%= ' | ' %>
+<%= link_to 'All Works', admin_employee_works_path(:employee_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<%= form_with scope: :work, url: admin_employee_works_path, local: true do |f| %>
+<%= 'Type of work:' %><br><br>
+<%= f.text_field :name %><br><br>
+<%= f.submit %>
+<% end %>

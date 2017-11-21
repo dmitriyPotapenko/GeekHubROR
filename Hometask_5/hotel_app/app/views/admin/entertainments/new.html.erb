@@ -1,0 +1,12 @@
+<h1> New Entertainment </h1>
+
+<%= link_to 'Hotels', admin_city_hotels_path(:city_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<%= form_with scope: :entertainment, url: admin_hotel_entertainments_path, local: true do |f| %>
+<%= 'Type of entertainment:' %><br><br>
+<%= f.text_field :kind_of %><br><br>
+<%= 'Select Signboard:' %>
+<%= f.file_field :avatar %><br><br>
+<%= f.submit %>
+<% end %>

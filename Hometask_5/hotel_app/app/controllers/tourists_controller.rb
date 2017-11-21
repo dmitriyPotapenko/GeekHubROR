@@ -6,31 +6,7 @@ class TouristsController < ApplicationController
     @tourists = Tourist.all
   end
 
-  def new
-    @tourist = Tourist.new
-  end
-
-  def create
-    @tourist = @hotel.tourists.create(tourist_params)
-
-    redirect_to hotel_tourists_path
-  end
-
   def show; end
-
-  def edit; end
-
-  def update
-    @tourist.update(tourist_params)
-
-    redirect_to tourist_path
-  end
-
-  def destroy
-    @tourist.destroy
-
-    redirect_to tourist_path
-  end
 
   private
 
@@ -40,9 +16,5 @@ class TouristsController < ApplicationController
 
   def find_hotel
     @hotel = Hotel.find(params[:hotel_id])
-  end
-
-  def tourist_params
-    params.require(:tourist).permit(:first_name, :second_name, :hotel_id)
   end
 end

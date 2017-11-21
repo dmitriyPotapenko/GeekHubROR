@@ -7,6 +7,4 @@
 <% @positions.each do |position| %>
 	<%= position.name %>
 	<%= link_to 'Show', position %>
-	<%= link_to 'Edit', edit_position_path(position) %>
-	<%= link_to 'Destroy', position, method: :delete %><br>
 <% end %>

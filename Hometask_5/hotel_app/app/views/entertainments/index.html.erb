@@ -7,6 +7,4 @@
 <% @entertainments.each do |entertainment| %>
 	<%= entertainment.kind_of %>
 	<%= link_to 'Show', entertainment %>
-	<%= link_to 'Edit', edit_entertainment_path(entertainment) %>
-	<%= link_to 'Destroy', entertainment, method: :delete %><br>
 <% end %>

@@ -1,0 +1,11 @@
+<h1> Index Entertainments </h1>
+
+<%= link_to 'Hotels', admin_city_hotels_path(:city_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<% @entertainments.each do |entertainment| %>
+	<%= entertainment.kind_of %>
+	<%= link_to 'Show', admin_entertainment_path(entertainment) %>
+	<%= link_to 'Edit', edit_admin_entertainment_path(entertainment) %>
+<% end %>

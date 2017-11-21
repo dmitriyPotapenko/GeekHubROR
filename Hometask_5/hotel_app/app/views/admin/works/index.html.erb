@@ -1,0 +1,11 @@
+<h1> Index Works </h1>
+
+<%= link_to 'Employees', admin_position_employees_path(:position_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<% @works.each do |work| %>
+	<%= work.name %>
+	<%= link_to 'Show', admin_work_path(work) %>
+	<%= link_to 'Edit', edit_admin_work_path(work) %>
+<% end %>

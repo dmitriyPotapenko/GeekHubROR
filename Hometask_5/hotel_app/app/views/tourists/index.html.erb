@@ -6,6 +6,4 @@
 <% @tourists.each do |tourist| %>
 	<%= tourist.second_name %>
 	<%= link_to 'Show', tourist %>
-	<%= link_to 'Edit', edit_tourist_path(tourist) %>
-	<%= link_to 'Destroy', tourist, method: :delete %><br>
 <% end %>

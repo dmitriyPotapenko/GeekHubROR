@@ -1,13 +1,5 @@
 <center>
 <h1> Hotel Application </h1>
-
-<%= link_to 'Continents', continents_path %><br>
-<%= link_to 'Countries', continent_countries_path(:continent_id) %><br>
-<%= link_to 'Cities', country_cities_path(:country_id) %><br>
-<%= link_to 'Hotels', city_hotels_path(:city_id) %><br>
-<%= link_to 'Tourists', hotel_tourists_path(:hotel_id) %><br>
-<%= link_to 'Entertainment', hotel_entertainments_path(:hotel_id) %><br>
-<%= link_to 'Positions', hotel_positions_path(:hotel_id) %><br>
-<%= link_to 'Employees', position_employees_path(:position_id) %><br>
-<%= link_to 'Works', employee_works_path(:employye_id) %><br>
+<%= link_to 'Admin',new_admin_session_path %><br><br>
+<%= link_to 'Continents', admin_continents_path %>
 </center>

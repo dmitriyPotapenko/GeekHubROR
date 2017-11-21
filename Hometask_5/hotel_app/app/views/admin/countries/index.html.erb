@@ -1,0 +1,12 @@
+<h1> Index Countries </h1>
+
+<%= link_to 'Continents', admin_continents_path %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<% @countries.each do |country| %>
+	<%= country.name %>
+	<%= link_to 'Show', admin_country_path(country) %>
+	<%= link_to 'Edit', edit_admin_country_path(country) %>
+	<% end %>
+	<br><br>
+	<%= will_paginate @countries %>

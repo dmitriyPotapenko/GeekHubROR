@@ -1,0 +1,14 @@
+<h1><%= 'Edit ' %>
+<%=  @entertainment.kind_of %>
+<%= 'Info' %></h1>
+
+<%= link_to 'All Entertainments', admin_hotel_entertainments_path(:hotel_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<%= form_with(model: @entertainment, url: admin_entertainment_path, method: :patch, local: true) do |f| %>
+<%= 'Type of entertainment:' %><br><br>
+<%= f.text_field :kind_of %><br><br>
+<%= 'Select New Signboard:' %>
+<%= f.file_field :avatar %><br><br>
+<%= f.submit %>
+<% end %>

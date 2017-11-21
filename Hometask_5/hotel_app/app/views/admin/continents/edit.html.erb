@@ -1,0 +1,14 @@
+<h1><%= 'Edit ' %>
+<%=  @continent.name %>
+<%= 'Info' %></h1>
+
+<%= link_to 'Continents', admin_continents_path %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<%= form_with(model: @continent, url: admin_continent_path, method: :patch, local: true) do |f| %>
+<%= 'Name:' %><br><br>
+<%= f.text_field :name %><br><br>
+<%= 'Select New Continent Map:' %>
+<%= f.file_field :avatar %><br><br>
+<%= f.submit %>
+<% end %>

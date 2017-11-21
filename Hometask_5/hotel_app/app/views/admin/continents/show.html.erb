@@ -1,0 +1,16 @@
+<h1><%= 'Show ' %>
+<%=  @continent.name %>
+<%= 'Info' %></h1>
+<%= image_tag(@continent.avatar_url(:thumb)) %><br><br>
+<%= link_to 'All Continents', admin_continents_path %>
+<%= ' | ' %>
+<%= link_to 'All Countries', admin_continent_countries_path(@continent) %>
+<%= ' | ' %>
+<%= link_to 'New Country', new_admin_continent_country_path(@continent) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<% @continent.countries.each do |country| %>
+<%= 'Country:' %><br>
+	<%= country.name %><br>
+	<% end %>

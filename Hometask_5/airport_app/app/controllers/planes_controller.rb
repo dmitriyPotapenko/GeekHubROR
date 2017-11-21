@@ -1,7 +1,7 @@
 class PlanesController < ApplicationController
   before_action :find_plane, only: %i[show edit update destroy]
   before_action :find_airport, only: [:create]
-  
+  before_action :authenticate_user!, only: %i[new edit update destroy]
 
   def index
     @planes = Plane.all

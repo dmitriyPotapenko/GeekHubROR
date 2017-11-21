@@ -1,7 +1,8 @@
 class CitiesController < ApplicationController
   before_action :find_city, only: %i[show edit update destroy]
   before_action :find_country, only: [:create]
-    
+  before_action :authenticate_user!, only: %i[new edit update destroy]
+
   def index
     @cities = City.all
   end

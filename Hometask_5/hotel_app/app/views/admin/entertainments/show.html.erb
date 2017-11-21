@@ -1,0 +1,10 @@
+<h1><%= 'Show ' %>
+<%= @entertainment.kind_of %>
+<%= 'Info' %></h1>
+<%= image_tag(@entertainment.avatar_url(:thumb)) %><br>
+<%= link_to 'All Entertainments', admin_hotel_entertainments_path(:hotel_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<%= 'Type of entertainment: ' %>
+<%= @entertainment.kind_of %><br>

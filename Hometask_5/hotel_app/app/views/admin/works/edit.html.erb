@@ -1,0 +1,12 @@
+<h1><%= 'Edit ' %>
+<%=  @work.name %>
+<%= 'Info' %></h1>
+
+<%= link_to 'Works', admin_employee_works_path(:employee_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<%= form_with(model: @work, url: admin_work_path, method: :patch, local: true) do |f| %>
+<%= 'Type:' %><br><br>
+<%= f.text_field :name %><br><br>
+<%= f.submit %>
+<% end %>

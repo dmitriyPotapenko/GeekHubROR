@@ -1,0 +1,11 @@
+<h1> Index Positions </h1>
+
+<%= link_to 'Hotels', admin_city_hotels_path(:city_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<% @positions.each do |position| %>
+	<%= position.name %>
+	<%= link_to 'Show', admin_position_path(position) %>
+	<%= link_to 'Edit', edit_admin_position_path(position) %>
+<% end %>

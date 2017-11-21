@@ -1,0 +1,14 @@
+<h1> Index Continents </h1>
+
+<%= link_to 'New Continent', new_admin_continent_path %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<% @continents.each do |continent| %>
+	<%= continent.name %>
+
+	<%= link_to 'Show', admin_continent_path(continent) %>
+	<%= link_to 'Edit', edit_admin_continent_path(continent) %>
+	<%= link_to 'Destroy', admin_continent_path(continent), method: :delete %><br>
+<% end %>
+<br><br>
+<%= will_paginate @continents %>

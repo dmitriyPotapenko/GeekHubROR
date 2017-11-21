@@ -1,0 +1,12 @@
+<h1> New Continent </h1>
+
+<%= link_to 'Continents', admin_continents_path %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<%= form_with scope: :continent, url: admin_continents_path, local: true do |f| %>
+  <%= 'Name:' %><br><br>
+  <%= f.text_field :name %><br><br>
+  <%= 'Select Continent Map:' %>
+  <%= f.file_field :avatar %><br><br>
+  <%= f.submit %>
+<% end %>

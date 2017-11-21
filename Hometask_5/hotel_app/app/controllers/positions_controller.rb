@@ -6,31 +6,7 @@ class PositionsController < ApplicationController
     @positions = Position.all
   end
 
-  def new
-    @position = Position.new
-  end
-
-  def create
-    @position = @hotel.positions.create(position_params)
-
-    redirect_to hotel_positions_path
-  end
-
   def show; end
-
-  def edit; end
-
-  def update
-    @position.update(position_params)
-
-    redirect_to position_path(@position)
-  end
-
-  def destroy
-    @position.destroy
-
-    redirect_to positions_path
-  end
 
   private
 
@@ -40,9 +16,5 @@ class PositionsController < ApplicationController
 
   def find_hotel
     @hotel = Hotel.find(params[:hotel_id])
-  end
-
-  def position_params
-    params.require(:position).permit(:name, :hotel_id)
   end
 end

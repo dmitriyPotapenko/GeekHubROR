@@ -1,0 +1,14 @@
+<h1><%= 'Show ' %>
+<%= @position.name %>
+<%= 'Info' %></h1>
+
+<%= link_to 'All Positions', admin_hotel_positions_path(:hotel_id) %>
+<%= ' | ' %>
+<%= link_to 'All Employees', admin_position_employees_path(:position_id) %>
+<%= ' | ' %>
+<%= link_to 'New Employee', new_admin_position_employee_path(@position) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<%= 'Name: ' %>
+<%= @position.name %><br>

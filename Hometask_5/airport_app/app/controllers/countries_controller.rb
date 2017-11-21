@@ -1,8 +1,9 @@
 class CountriesController < ApplicationController
   before_action :find_country, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new edit update destroy]
 
   def index
-    @countries = Country.paginate(:page => params[:page], :per_page => 1)
+    @countries = Country.paginate(page: params[:page], per_page: 1)
   end
 
   def new

@@ -6,31 +6,7 @@ class EntertainmentsController < ApplicationController
     @entertainments = Entertainment.all
   end
 
-  def new
-    @entertainment = Entertainment.new
-  end
-
-  def create
-    @entertainment = @hotel.entertainments.create(entertainment_params)
-
-    redirect_to hotel_entertainments_path
-  end
-
   def show; end
-
-  def edit; end
-
-  def update
-    @entertainment.update(entertainment_params)
-
-    redirect_to entertainment_path(@entertainment)
-  end
-
-  def destroy
-    @entertainment.destroy
-
-    redirect_to entertainment_path
-  end
 
   private
 
@@ -40,9 +16,5 @@ class EntertainmentsController < ApplicationController
 
   def find_hotel
     @hotel = Hotel.find(params[:hotel_id])
-  end
-
-  def entertainment_params
-    params.require(:entertainment).permit(:kind_of, :avatar, :hotel_id)
   end
 end

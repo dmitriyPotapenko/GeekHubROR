@@ -1,0 +1,16 @@
+<h1><%= 'Show ' %>
+<%= @employee.second_name %>
+<%= 'Info' %></h1>
+<%= image_tag(@employee.avatar_url(:thumb)) %><br>
+<%= link_to 'All Employees', admin_position_employees_path(:position_id) %>
+<%= ' | ' %>
+<%= link_to 'All Work', admin_employee_works_path(:employee_id) %>
+<%= ' | ' %>
+<%= link_to 'New Work', new_admin_employee_work_path(@employee) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<%= 'Second Name: ' %>
+<%= @employee.second_name %><br>
+<%= 'First Name: ' %>
+<%= @employee.first_name %><br>

@@ -1,6 +1,7 @@
 class PassangersController < ApplicationController
   before_action :find_passanger, only: %i[show edit update destroy]
-  
+  before_action :authenticate_user!, only: %i[new edit update destroy]
+
   def index
     @passangers = Passanger.all
   end

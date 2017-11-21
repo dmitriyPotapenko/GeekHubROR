@@ -1,0 +1,10 @@
+<h1><%= 'Show ' %>
+<%= @work.name %>
+<%= 'Info' %></h1>
+
+<%= link_to 'All Works', admin_employee_works_path(:employee_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+
+<%= 'Type of work: ' %>
+<%= @work.name %><br>

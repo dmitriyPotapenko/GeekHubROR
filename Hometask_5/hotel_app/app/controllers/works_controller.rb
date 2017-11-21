@@ -6,31 +6,7 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
-  def new
-    @work = Work.new
-  end
-
-  def create
-    @work = @employee.works.create(work_params)
-
-    redirect_to employee_works_path
-  end
-
   def show; end
-
-  def edit; end
-
-  def update
-    @work.update(work_params)
-
-    redirect_to works_path(@works)
-  end
-
-  def destroy
-    @work.destroy
-
-    redirect_to work_path
-  end
 
   private
 
@@ -40,9 +16,5 @@ class WorksController < ApplicationController
 
   def find_employee
     @employee = Employee.find(params[:employee_id])
-  end
-
-  def work_params
-    params.require(:work).permit(:name, :employee_id)
   end
 end

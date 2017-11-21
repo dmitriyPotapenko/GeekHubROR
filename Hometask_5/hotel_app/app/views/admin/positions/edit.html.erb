@@ -1,0 +1,12 @@
+<h1><%= 'Edit ' %>
+<%=  @position.name %>
+<%= 'Info' %></h1>
+
+<%= link_to 'Positions', admin_hotel_positions_path(:hotel_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<%= form_with(model: @position, url: admin_position_path, method: :patch, local: true) do |f| %>
+<%= 'Name:' %><br><br>
+<%= f.text_field :name %><br><br>
+<%= f.submit %>
+<% end %>

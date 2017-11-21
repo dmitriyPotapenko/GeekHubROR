@@ -1,0 +1,10 @@
+<h1> Index Tourists </h1>
+
+<%= link_to 'Hotels', admin_city_hotels_path(:hotel_id) %>
+<%= ' | ' %>
+<%= link_to 'Home Page', root_path %><br><br>
+<% @tourists.each do |tourist| %>
+	<%= tourist.second_name %>
+	<%= link_to 'Show', admin_tourist_path(tourist) %>
+	<%= link_to 'Edit', edit_admin_tourist_path(tourist) %>
+<% end %>

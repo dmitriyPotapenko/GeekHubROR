@@ -3,34 +3,10 @@ class HotelsController < ApplicationController
   before_action :find_city, only: [:create]
 
   def index
-    @hotels = Hotel.paginate(:page => params[:page], :per_page => 1)
-  end
-
-  def new
-    @hotel = Hotel.new
-  end
-
-  def create
-    @hotel = @city.hotels.create(hotel_params)
-
-    redirect_to city_hotels_path
+    @hotels = Hotel.paginate(page: params[:page], per_page: 1)
   end
 
   def show; end
-
-  def edit; end
-
-  def update
-    @hotel.update(hotel_params)
-
-    redirect_to hotel_path(@hotel)
-  end
-
-  def destroy
-    @hotel.destroy
-
-    redierct_to city_path(@hotel.city)
-  end
 
   private
 
@@ -40,9 +16,5 @@ class HotelsController < ApplicationController
 
   def find_city
     @city = City.find(params[:city_id])
-  end
-
-  def hotel_params
-    params.require(:hotel).permit(:name, :avatar, :city_id)
   end
 end
