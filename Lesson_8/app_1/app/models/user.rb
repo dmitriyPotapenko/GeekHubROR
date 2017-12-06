@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   scope :only_admin, proc { where(admin: true) }
+
+  mount_uploader :avatar, AvatarUploader
 end
